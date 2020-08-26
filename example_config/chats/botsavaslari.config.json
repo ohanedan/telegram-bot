@@ -1,0 +1,27 @@
+{
+    "chat_id": -389869015,
+    "replies": [
+        {
+            "message": "pong, (name)",
+            "regex": "^ping$"
+        },
+        {
+            "message": "Türkçe dilinde her \"şey\" ayrı yazılır, (name)",
+            "regex": "^(?:.*)[^ ]+şey(?:.*)$"
+        }
+    ],
+    "scheduled_messages": [
+        {
+            "message": "Günaydın",
+            "when": [
+                "09:00"
+            ]
+        },
+        {
+            "message": "İyi akşamlar",
+            "when": [
+                "18:00"
+            ]
+        }
+    ]
+}

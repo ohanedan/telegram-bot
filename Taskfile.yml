@@ -1,0 +1,23 @@
+# https://taskfile.dev
+
+version: '2'
+
+tasks:
+  default:
+    cmds:
+      - echo "Check taskfile for build options."
+    silent: true
+
+  build-windows:
+    cmds:
+      - go build
+    env:
+      GOOS: windows
+    silent: true
+
+  build-linux:
+    cmds:
+      - go build -o bot
+    env:
+      GOOS: linux
+    silent: true

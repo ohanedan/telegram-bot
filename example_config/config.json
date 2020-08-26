@@ -1,0 +1,9 @@
+{
+    "api_key": "<Your Api Key Here>",
+    "available_chats": [
+        "pingpong",
+        "test_group",
+        "botsavaslari"
+    ],
+    "enable_logs": true
+}

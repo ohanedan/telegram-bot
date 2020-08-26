@@ -1,0 +1,11 @@
+{
+    "chat_id": -497728300,
+    "replies": [
+        {
+            "if": "message.From.ID == 833754986",
+            "message": "Duyuyorum kral",
+            "regex": "test"
+        }
+    ],
+    "scheduled_messages": []
+}

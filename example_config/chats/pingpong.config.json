@@ -1,0 +1,40 @@
+{
+    "chat_id": -461677265,
+    "replies": [
+        {
+            "message": "pong, (name)",
+            "regex": "^ping$"
+        }
+    ],
+    "scheduled_messages": [
+        {
+            "message": "Günaydın",
+            "when": [
+                "09:00"
+            ]
+        },
+        {
+            "message": "İyi akşamlar",
+            "when": [
+                "18:00"
+            ]
+        },
+        {
+            "message": "ping",
+            "days": [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday"
+            ],
+            "when": [
+                "10:30",
+                "12:00",
+                "13:30",
+                "15:00",
+                "16:30"
+            ]
+        }
+    ]
+}
