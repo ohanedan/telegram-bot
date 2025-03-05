@@ -32,7 +32,7 @@ func RunBot(config *config.Scheme) error {
 
 	errChan := make(chan error)
 
-	go schuledMessages(l, bot, config.Chats, errChan)
+	go scheduledMessages(l, bot, config.Chats, errChan)
 
 	lastActivityTime := time.Now()
 	for {
