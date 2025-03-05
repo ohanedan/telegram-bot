@@ -6,6 +6,14 @@
             "regex": "^ping$"
         }
     ],
+    "ai_replies": [
+        {
+            "regex": ".*",
+            "prompt": "prompt",
+            "model": "qwen2.5:32b-instruct",
+            "responseRegex": "<message>(.*?)<\/message>"
+        }
+    ],
     "scheduled_messages": [
         {
             "message": "Günaydın",

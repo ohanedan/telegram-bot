@@ -76,22 +76,34 @@ func (conf *Config) checkConfig() error {
 	parent := filepath.Dir(conf.Path)
 
 	chats := filepath.Join(parent, "chats")
+	prompts := filepath.Join(parent, "prompts")
 
 	stats, err := os.Stat(chats)
-
 	if os.IsNotExist(err) {
 		return errors.New("chats path does not exist")
 	}
+	if err != nil {
+		return err
+	}
 
+	prompts_stats, err := os.Stat(prompts)
+	if os.IsNotExist(err) {
+		return errors.New("chats path does not exist")
+	}
 	if err != nil {
 		return err
 	}
 
 	if !stats.IsDir() {
-		return errors.New("chats path not is a directiory")
+		return errors.New("chats path not is a directory")
+	}
+
+	if !prompts_stats.IsDir() {
+		return errors.New("prompts path not is a directory")
 	}
 
 	conf.ChatsPath = chats
+	conf.PromptsPath = prompts
 
 	files, err := ioutil.ReadDir(conf.ChatsPath)
 	if err != nil {
@@ -138,6 +150,17 @@ func (conf *Config) parseChats() error {
 		}
 
 		c.ChatName = chatName
+
+		for _, aiReply := range c.AiReplies {
+			promptsPath := filepath.Join(conf.PromptsPath,
+				fmt.Sprintf("%v.txt", aiReply.Prompt))
+
+			bytes, err := ioutil.ReadFile(promptsPath)
+			if err != nil {
+				return err
+			}
+			aiReply.PromptText = string(bytes)
+		}
 
 		conf.Config.Chats[chatName] = c
 		conf.Config.IDChats[c.ChatID] = c

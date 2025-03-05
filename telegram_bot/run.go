@@ -29,6 +29,7 @@ func RunBot(config *config.Scheme) error {
 	}
 
 	printReplyMessages(l, config.IDChats)
+	printAiReplyMessages(l, config.IDChats)
 
 	errChan := make(chan error)
 
@@ -39,6 +40,7 @@ func RunBot(config *config.Scheme) error {
 		select {
 		case update := <-updates:
 			go replyMessages(update, l, bot, config.IDChats, errChan)
+			go replyAiMessages(update, l, bot, config.IDChats, errChan)
 			lastActivityTime = time.Now()
 		case err := <-errChan:
 			return err
